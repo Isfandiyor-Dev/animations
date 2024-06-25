@@ -1,7 +1,9 @@
+import 'package:animations/providers/theme_provider.dart';
 import 'package:animations/views/widgets/airplane.dart';
 import 'package:animations/views/widgets/darkMode.dart';
 import 'package:animations/views/widgets/ligtMode.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key});
@@ -44,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage>
           onTap: () {
             setState(() {
               isLigtMode = !isLigtMode;
-              animationController.repeat(reverse: false);
+                    Provider.of<ThemeProvider>(context, listen: false).toggleThemeMode();
               animationController.forward();
             });
           },
